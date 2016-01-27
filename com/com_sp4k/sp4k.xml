@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>COM_SP4K</name>
+    <creationDate>2015-07-14</creationDate>
+    <author>JoomSavvy</author>
+    <authorEmail>support@joomsavvy.com</authorEmail>
+    <authorUrl>http://joomsavvy.com</authorUrl>
+    <copyright>2015 JOOMSAVVY ALL RIGHTS RESERVED</copyright>
+    <license>COMMERCIAL</license>
+    <version>0.0.1</version>
+    <description>COM_SP4K_DESCRIPTION</description>		
+	<install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <scriptfile>script.php</scriptfile>
+    <files folder="site">
+        <folder>controllers</folder>
+        <folder>models</folder>
+        <folder>helpers</folder>
+        <folder>html</folder>
+        <folder>views</folder>
+        <filename>sp4k.php</filename>
+        <filename>index.html</filename>
+    </files>
+    <media folder="media" destination="com_sp4k">
+        <folder>css</folder>
+        <folder>images</folder>
+		<folder>js</folder>
+		<folder>lib</folder>
+		<filename>index.html</filename>
+    </media>
+
+    <languages>
+        <language tag="en-GB">lang/site/en-GB/en-GB.com_sp4k.ini</language>
+    </languages>
+    <administration>
+        <menu link="option=com_sp4k" img="">COM_SP4K</menu>
+		<files folder="admin">			
+            <folder>controllers</folder>
+            <folder>models</folder>
+            <folder>views</folder>
+			<folder>helpers</folder>
+			<folder>sql</folder>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>sp4k.php</filename>
+            <filename>index.html</filename>
+		</files>
+
+        <languages>
+            <language tag="en-GB">lang/admin/en-GB/en-GB.com_sp4k.ini</language>
+            <language tag="en-GB">lang/admin/en-GB/en-GB.com_sp4k.sys.ini</language>
+        </languages>
+    </administration>
+</extension>

@@ -1,0 +1,104 @@
+<?php
+
+    use Joomla\Registry\Registry;
+    /**
+     * Created by Joseph Cardwell.
+     * User: Ironman
+     * Date: 10/15/2015
+     * Time: 10:13 AM
+     */
+
+    class Sp4kAppsCartPluginsBookingSubscription
+    {
+        public $attendeeOptions;
+        public $startDateOptions;
+        public $attendee;
+        public $event_id;
+        public $product_id;
+        public $venue;
+        public $cartkey;
+        public $type = 'subscription';
+        public $eventdays;
+
+        public function __construct($state){
+            $this->_state = $state;
+            $this->setEvent();
+            $this->setVenue();
+            $this->setAttendee();
+            $this->setStartDate();
+            $this->setAttendeeOptions();
+            $this->setStartDateOptions();
+            $this->cartkey = md5($this->product_id);
+        }
+
+        //this class defines the parameters for subscription bookable products
+        //provide start dates using product schedule.
+        //provide attendee options.
+
+        private function setEvent(){
+            $this->event_id = $this->_state->get('event_id');
+            $this->event = Sp4kAppsEventApp::getInstance(
+                new Registry(['id'=>$this->event_id])
+            )->getItem();
+        }
+
+        private function setVenue(){
+            $this->venue_id = $this->event->venue_id;
+            $this->venue = Sp4kAppsVenueApp::getInstance(
+                new Registry(['id'=>$this->venue_id])
+            )->getItem();
+        }
+
+        private function setAttendee(){
+            if($child_id =$this->_state->get('child_id',$this->_state->get('attendee',false))) {
+                $this->attendee = Sp4kAppsChildApp::getInstance(
+                    new Registry(['id' => $child_id])
+                )->getItem();
+            }
+        }
+
+        private function setStartDate(){
+            $this->startdate = $this->_state->get('start_date',false);
+        }
+
+        private function setAttendeeOptions(){
+            $parentFilters = new stdClass();
+            $parentFilters->juser_id = JFactory::getUser()->id;
+
+            $parentAppItems =Sp4kAppsParentApp::getInstance(
+                new Registry(['filters' => $parentFilters])
+            )->getItems();
+
+            $parent = array_pop($parentAppItems);
+
+            $childFilters = new stdClass();
+            $childFilters->parent_id = $parent->id;
+
+
+            $this->children = Sp4kAppsChildApp::getInstance(
+                new Registry(['filters' => $childFilters])
+            )->getItems();
+        }
+
+        private function setStartDateOptions()
+        {
+
+            //get the event.rrule and calculate start dates for 30 days.
+
+            //get the next viable date.
+            //get the dates
+            $firstDate = new \DateTime();
+            $firstDateThirty = new \DateTime(strftime('%Y%m%d',strtotime('+30days')));
+
+            /** @var Sp4kAppsRruleItem $rrule */
+            $this->rrule = Sp4kAppsRruleApp::getInstance(new Registry(['id'=>$this->event->rrule_id]))->getItem();
+            $dateStartCollection = $this->rrule->getDatesBetween($firstDate,$firstDateThirty);
+            $dateStartCollection = $dateStartCollection->toArray();
+            foreach( $dateStartCollection  as $dateStartCollectionItem ){
+                /** @var DateTime $startDateObject */
+                $startDateObject = $dateStartCollectionItem->getStart();
+                $this->dateStartOptions[] = $startDateObject->getTimeStamp();
+            }
+        }
+
+    }

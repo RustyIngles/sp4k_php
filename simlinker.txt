@@ -1,0 +1,58 @@
+
+///com site
+mklink /D 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\components\com_crdx 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\com\com_crdx\site 
+
+///com admin
+mklink /D  
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\administrator\components\com_crdx 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\com\com_crdx\admin\ 
+
+//manifest
+mklink
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\administrator\components\com_crdx\crdx.xml 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\com\com_crdx\crdx.xml 
+
+//script
+mklink
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\administrator\components\com_crdx\script.php 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\com\com_crdx\script.php
+
+///media
+mklink /D 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\media\com_crdx 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\com\com_crdx\media\
+
+
+///languages
+
+//admin
+mklink 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\administrator\language\en-GB\en-GB.com_crdx.ini 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\com\com_crdx\languages\admin\en-GB\en-GB.com_crdx.ini 
+
+mklink 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\administrator\language\en-GB\en-GB.com_crdx.sys.ini 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\com\com_crdx\languages\admin\en-GB\en-GB.com_crdx.sys.ini 
+
+//site
+mklink 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\language\en-GB\en-GB.com_crdx.ini 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\com\com_crdx\languages\site\en-GB\en-GB.com_crdx.ini 
+
+///library
+mklink /D 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\libraries\coordex 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\lib 
+
+///tpl
+mklink /D 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\tpl\pages 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\tpl\pages 
+
+
+///tpl
+mklink /D 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SERVER\tpl\app 
+C:\Users\Ironman\WORKSPACE\PROJECTS\COORDEX\SRC\PKG\symlinks\tpl\app 

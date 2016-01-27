@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset
+            name="basic"
+            label="COM_JOBS_CONFIG_BASIC_LABEL"
+            description="COM_JOBS_CONFIG_BASIC_DESC"
+            >
+        <field
+                name="registered_manual_bump_interval"
+                type="text"
+                label="COM_JOBS_REGISTERED_MANUAL_BUMP_INTERVAL_LABEL"
+                />
+        <field
+                name="donor_manual_bump_interval"
+                type="text"
+                label="COM_JOBS_DONOR_MANUAL_BUMP_INTERVAL_LABEL"
+                />
+        <field
+                name="auto_bump_cost"
+                type="text"
+                label="COM_JOBS_AUTO_BUMP_COST"
+                />
+        <field
+                name="auto_bump_interval"
+                type="text"
+                label="COM_JOBS_AUTO_BUMP_INTERVAL"
+                />
+        <field
+                name="sticky_cost"
+                type="text"
+                label="COM_JOBS_STICKY_COST"
+                />
+        <field
+                name="sticky_interval"
+                type="text"
+                label="COM_JOBS_STICKY_INTERVAL"
+                />
+    </fieldset>
+    <fieldset
+            name="permissions"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            description="JCONFIG_PERMISSIONS_DESC"
+            >
+        <field name="asset_id" type="hidden" filter="unset" />
+        <field
+                name="rules"
+                type="rules"
+                label="JCONFIG_PERMISSIONS_LABEL"
+                validate="rules"
+                filter="rules"
+                class="inputbox"
+                component="com_vlm"
+                section="admin"
+                />
+
+
+    </fieldset>
+</config>
